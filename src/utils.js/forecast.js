@@ -11,8 +11,9 @@ const forecast = (latitude,longitude,callback) => {
             callback(body.error,undefined)
         }else{
             console.log(body.daily.data[0].summary+' It is currently '+body.currently.temperature+' degresss. There is a '+body.currently.precipProbability+'% chance of rain')
+            const summary = body.daily.data[0].summary+' It is currently '+body.currently.temperature+' degresss. There is a '+body.currently.precipProbability+'% chance of rain'
             callback(undefined,{
-                summary: body.daily.data[0].summary,
+                summary: summary,
                 temperature: body.currently.temperature,
                 precipProbability: body.currently.precipProbability
             })
